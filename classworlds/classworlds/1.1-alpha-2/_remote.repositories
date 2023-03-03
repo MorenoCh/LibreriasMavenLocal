@@ -1,3 +1,4 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Fri Feb 03 14:32:58 COT 2023
-cglib-parent-3.2.5.pom>central=
+#Wed Jan 18 09:38:43 COT 2023
+classworlds-1.1-alpha-2.pom>central=
+classworlds-1.1-alpha-2.jar>central=
