@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Feb 03 15:09:48 COT 2023
+guice-4.2.2.jar>central=
+guice-4.2.2-javadoc.jar>central=
+guice-4.2.2.pom>central=
+guice-4.2.2-sources.jar>central=
