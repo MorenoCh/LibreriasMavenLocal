@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Aug 09 14:49:05 COT 2022
+serenity-ensure-2.4.3.jar>central=
+serenity-ensure-2.4.3-sources.jar>central=
+serenity-ensure-2.4.3.pom>central=

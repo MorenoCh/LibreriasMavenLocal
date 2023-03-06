@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>net.sf.jt400</groupId>
+	<artifactId>jt400</artifactId>
+	<packaging>jar</packaging>
+	<version>6.7</version>
+	<name>JT400</name>
+	<description>The Open Source version of the IBM Toolbox for Java</description>
+	<url>http://jt400.sourceforge.net/</url>
+
+	<licenses>
+		<license>
+			<name>IBM Public License Version 1.0</name>
+			<url>http://sourceforge.net/projects/jt400/files/JTOpen-full/6.7/license_6_7.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>http://jt400.cvs.sourceforge.net/jt400/</url>
+	</scm>
+	
+</project>
