@@ -1,1 +1,1 @@
-https://qaautomation.expert/2021/07/12/run-gradle-cucumber-tests-from-command-line/
+https://ideone.com/Li8MaY
