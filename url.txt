@@ -1,1 +1,3 @@
-https://techkrowd.com/programacion/java/como-eliminar-los-espacios-de-una-cadena-en-java/#:~:text=Utilizando%20el%20m%C3%A9todo%20trim(),una%20nueva%20con%20el%20resultado.
+[5:17 p. m.] Oscar Arturo Carrillo Gonzalez
+gradle :test --tests "com.bancoOccidente.runners.Runner"
+
