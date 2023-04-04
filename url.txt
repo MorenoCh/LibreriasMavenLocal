@@ -1,3 +1,0 @@
-[5:17 p. m.] Oscar Arturo Carrillo Gonzalez
-gradle :test --tests "com.bancoOccidente.runners.Runner"
-

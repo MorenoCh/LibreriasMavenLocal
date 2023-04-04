@@ -1,0 +1,78 @@
+group 'com.bancoOccidente'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:2.4.34"
+    }
+}
+
+defaultTasks 'clean','test','aggregate'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: "net.serenity-bdd.serenity-gradle-plugin"
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+sourceCompatibility = 1.11
+
+ext {
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '2.4.34'
+    serenityCucumberVersion = '2.4.34'
+    junitVersion = '5.8.1'
+    assertJVersion = '3.22.0'
+    logbackVersion = '1.2.10'
+    log4jVersion = '1.2.16'
+    jt400Version = '6.7'
+    jythonVersion = '2.7.2'
+    javaxMailVersion = '1.4.5'
+    lowagieVersion = '1.2.3'
+    poiooxml = '3.9'
+}
+
+dependencies {
+    testImplementation "net.serenity-bdd:serenity-rest-assured:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-cucumber6:${serenityCucumberVersion}",
+            "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
+            "org.junit.platform:junit-platform-launcher:1.8.1",
+            "org.junit.jupiter:junit-jupiter-engine:${junitVersion}",
+            "org.junit.vintage:junit-vintage-engine:${junitVersion}",
+            "org.assertj:assertj-core:${assertJVersion}"
+
+
+    implementation "log4j:log4j:${log4jVersion}",
+            "ch.qos.logback:logback-classic:${logbackVersion}",
+            "net.sf.jt400:jt400:${jt400Version}",
+            "org.python:jython:${jythonVersion}",
+            "javax.mail:mail:${javaxMailVersion}",
+            "org.apache.poi:poi-ooxml:${poiooxml}",
+            "com.lowagie:itext:${lowagieVersion}"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging.showStandardStreams = true
+    testLogging.exceptionFormat = 'full'
+    maxParallelForks = Runtime.runtime.availableProcessors() - 1
+    systemProperties System.getProperties()
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
