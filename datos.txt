@@ -1,0 +1,10 @@
+Row fila = hojaArcExcel.getRow(2);
+Cell celda = fila.getCell(1);
+
+celda.setCellValue("");
+
+FileOutputStream salida = new FileOutputStream(excel.getRutaExcel());
+libroExcel.write(salida);
+
+arcExcel.close();
+salida.close();
