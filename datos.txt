@@ -1,14 +1,34 @@
-public static String[] removeElement(String[] arr, String item) {
-        return Arrays.stream(arr)
-                .filter(s -> !s.equals(item))
-                .toArray(String[]::new);
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
+import java.util.Properties;
+
+public static String encriptar(String texto) {
+        try {
+            byte[] keyBytes = texto.getBytes("UTF-8");
+            byte[] keyBytes16 = new byte[16];
+            System.arraycopy(keyBytes, 0, keyBytes16, 0, Math.min(keyBytes.length, 16));
+            SecretKeySpec secretKey = new SecretKeySpec(keyBytes16, "AES");
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+            return Base64.getEncoder().encodeToString(cipher.doFinal(texto.getBytes("UTF-8")));
+        } catch (Exception e) {
+            System.err.println("Error al encriptar: " + e.getMessage());
+        }
+        return null;
     }
- 
-    public static void main(String[] args) {
- 
-        String[] arr = {"A", "C", "B", "C", "D"};
-        String item = "C";
- 
-        arr = removeElement(arr, item);
-        System.out.println(Arrays.toString(arr));
+
+    public static String desencriptar(String textoEncriptado) {
+        try {
+            byte[] keyBytes = textoEncriptado.getBytes("UTF-8");
+            byte[] keyBytes16 = new byte[16];
+            System.arraycopy(keyBytes, 0, keyBytes16, 0, Math.min(keyBytes.length, 16));
+            SecretKeySpec secretKey = new SecretKeySpec(keyBytes16, "AES");
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
+            cipher.init(Cipher.DECRYPT_MODE, secretKey);
+            return new String(cipher.doFinal(Base64.getDecoder().decode(textoEncriptado)));
+        } catch (Exception e) {
+            System.err.println("Error al desencriptar: " + e.getMessage());
+        }
+        return null;
     }
